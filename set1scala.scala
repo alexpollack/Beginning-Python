@@ -1,11 +1,10 @@
-package pl.hw03
-//package scala.math
+package scala.math
 
-object hw03 extends App {
+object set1 extends App {
 
-  // Problem 1: Short-circuit Evaluation
+  //Short-circuit Evaluation
   
-  // implements 'e1 && e2'
+  // this will implement 'e1 && e2'
   def and(e1: => Boolean, e2: => Boolean): Boolean = {
     if(e1) {
       if(e2) {
@@ -20,7 +19,7 @@ object hw03 extends App {
     }
   }
   
-  // implements 'e1 || e2'
+  // this will implement 'e1 || e2'
   def or(e1: => Boolean, e2: => Boolean): Boolean = {
     if(e1) {
       return true;
@@ -35,13 +34,11 @@ object hw03 extends App {
     }
   }
   
-  // Problem 2: Newton's Method
+  // Simple Newton's Method
   
   def cubicRoot(c: Double, epsilon: Double): Double = {
     require (c >= 0) // makes sure that we don't call cubicRoot with negative values
     require (epsilon >= 0) // the error bound should also be positive
-
-    // Replace the ??? with your implementation of Newton's Method
     
     var xn: Double = 1.0; // insert appropriate value to initialize xn
 
@@ -52,10 +49,10 @@ object hw03 extends App {
     return xn
   }
 
-  // Problem 3: Binary Search
+  // Simple Binary Search
 
   def isStrictlySorted(a: Array[Int]): Boolean = {
-    require (a != null) // make sure that 'a' is non-null
+    require (a != null) // make sure that 'a' isn't null
     var i: Int = 1
     while( i < a.length) {
       if (a(i - 1) >= a(i)) {
@@ -68,7 +65,7 @@ object hw03 extends App {
   }
 
   def binarySearch(x: Int, a: Array[Int]): Int = {
-    require (a != null && isStrictlySorted(a)) // make sure that 'a' is non-null and sorted
+    require (a != null && isStrictlySorted(a)) // make sure that 'a' isn't null and sorted
     var m: Int = 0
     var range = Array(0, a.length - 1)
     var big: Boolean = false
@@ -133,11 +130,4 @@ object hw03 extends App {
     }
 
   }
-  
-  // Add testing code here, or better yet, add them as additional unit tests to test/scala/pl/hw03/hw03Spec.scala
-  
-  // Examples:
-  // println(cubicRoot(27, 0.0001))
-  // println(isStrictlySorted(Array(1, 2, 3)))
-  // println(binarySearch(2, Array(1, 3, 4)))
 }
