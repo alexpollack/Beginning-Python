@@ -1,9 +1,7 @@
-package hw10
-
 import scala.collection.immutable.AbstractMap
 import scala.language.implicitConversions
 
-object hw10 {
+object set4 {
   
   sealed abstract class TreeMap[+A] extends AbstractMap[Int, A] {
     def add[B >: A](kv: (Int, B)): TreeMap[B] = {
