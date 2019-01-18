@@ -1,12 +1,10 @@
-package pl.hw05
-
 import scala.annotation.tailrec
 
-object hw05 extends App {
+object set3 extends App {
 
-  // Problem 1: Tail Recursion
+  // Using Tail Recursion
 
-  // Naive inefficient implementation of binom used for testing
+  // an inefficient implementation of binomial method
   def binomNaive(n: Int, k: Int): Int = {
     require(0 <= k && k <= n)
     if (n == k || k == 0) 1
@@ -18,14 +16,9 @@ object hw05 extends App {
     if (k == 0 || k == n) num / denom else binomTail(n * num, k * denom, n - 1, k - 1)
   }
 
-  // Your implementation of Part 1
-  def binom(n0: Int, k0: Int): Int = binomTail(1, 1, n0, k0) //{
-  //require (0 <= k && k <= n)
-  //???
-  //}
 
 
-  // Naive inefficient implementation of trib used for testing
+  // an inefficient implementation of trib 
   def tribNaive(n: Int): Int = {
     require(0 <= n)
     n match {
@@ -43,7 +36,6 @@ object hw05 extends App {
     else tribTail(n0,n-1,a+b+c,a,b)
   }
 
-  // Your implementation of Part 2
   def trib(n: Int): Int = tribTail(n,n,1,1,0)
 
   
