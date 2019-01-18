@@ -1,24 +1,6 @@
 #lang scheme
 
-#| Homework 6
-
-Replace each '??? with your implementation of the corresponding function. If
-you are asked to define a tail-recursive function, you are allowed to define
-auxiliary helper functions at the top-level using 'define'. Alternatively,
-define the helper functions in a nested scope using `letrec`.
-
-At the end of the file, several unit tests are given. If you run the file in
-DrRacket, and you end up with the prompt > and don't see any output,
-then all tests have passed. If a test fails, then you will see one or
-more error messages. If one of your functions does not terminate,
-you will not see the command prompt > after clicking 'Run'.
-
-|#
-
-
-; Problem 1
-
-; Part 1: unzip
+; unzip: a function that 'unzips' a set of tuples
 (define (unzip xys)
   (match xys
     ['() (cons '() '())]
@@ -27,7 +9,7 @@ you will not see the command prompt > after clicking 'Run'.
        (cons (cons (car hd) (car res)) (cons (cdr hd) (cdr res))))]))
 
 
-; Part 2: flatten
+; flatten: flattens a list of tuples
 (define flatten
   (lambda (xs)
     (letrec ([flattentail
@@ -40,10 +22,7 @@ you will not see the command prompt > after clicking 'Run'.
                      (else (flattentail(cdr xs) (cons (car xs) lis)))))])
       (reverse (flattentail xs '())))))
 
-
-; Problem 2
-
-; Part 1: unzip-alt
+; unzip-alt: an alternate form of unzip using foldr
 (define (unzip-alt xys)
   (match xys
     ['() (cons '() '())]
@@ -52,14 +31,14 @@ you will not see the command prompt > after clicking 'Run'.
        (foldr cons '() (cons (cons (car hd) (car res)) (cons (cdr hd) (cdr res)))))]))
 
 
-; Part 2: foldr-alt
+; foldr-alt: an alternate way to create the fold right tool using fold left (foldl)
 (define (foldr-alt op z xs)
     (match xs
       [(cons hd tl) (foldl op z (foldl cons '() xs))]
       ['() z]))
 
 
-; Part 3: in-relation
+; in-relation: compares the relation of two inputs and returns true or false based on that 
 (define in-relation
   (lambda (p xs)
   (letrec ((reltail
